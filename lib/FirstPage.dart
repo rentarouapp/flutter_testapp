@@ -7,13 +7,14 @@ class FirstPage extends StatelessWidget {
       appBar: AppBar(title: const Text('ファーストページ')),
       body: Center(
         child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(
+          onPressed: () async {
+            var message = await Navigator.push(
               context,
               MaterialPageRoute(builder: (context) {
-                return SecondPage();
+                return SecondPage('画面遷移でセカンドページにいくよ');
               }),
             );
+            print(message);
           },
           child: Text('画面遷移'),
         ),
